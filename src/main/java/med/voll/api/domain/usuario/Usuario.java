@@ -63,4 +63,15 @@ public class Usuario implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public  Usuario(String login, String senha){
+        this.login = login;
+        this.senha = senha;
+    }
+
+    public record DadosDetalhamentoUsuario(Long id, String login) {
+        public DadosDetalhamentoUsuario(Usuario usuario) {
+            this(usuario.getId(), usuario.getLogin());
+        }
+    }
 }
